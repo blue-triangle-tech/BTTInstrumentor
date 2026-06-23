@@ -1,0 +1,15 @@
+{
+  "originHash" : "96992b3aa37d4136e99f71ba715e41ad87c106ab0ad324f9efec3c4878a4661f",
+  "pins" : [
+    {
+      "identity" : "btt-swift-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JP-aloha/btt-swift-sdk.git",
+      "state" : {
+        "branch" : "feature/swiftui_auto_track",
+        "revision" : "d5cf6a0ba07751ba2e49af98a2f3d9890ab35950"
+      }
+    }
+  ],
+  "version" : 3
+}

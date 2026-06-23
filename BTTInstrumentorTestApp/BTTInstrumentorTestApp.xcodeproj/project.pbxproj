@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		51F133F62FE4150D004D0438 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 51F133F52FE4150D004D0438 /* BlueTriangle */; };
+		51F133FB2FE53249004D0438 /* Scenario18_FunctionCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F133FA2FE53236004D0438 /* Scenario18_FunctionCall.swift */; };
+		51F133FE2FE53D21004D0438 /* Scenario19_Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F133FD2FE53D03004D0438 /* Scenario19_Group.swift */; };
+		51F134002FE53D83004D0438 /* Scenario20_List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F133FF2FE53D77004D0438 /* Scenario20_List.swift */; };
+		51F134022FE58132004D0438 /* Scenario25_CommentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F134012FE58111004D0438 /* Scenario25_CommentedView.swift */; };
+		AABB000100000001 /* BTTInstrumentorTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000001 /* BTTInstrumentorTestApp.swift */; };
+		AABB000100000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000002 /* ContentView.swift */; };
+		AABB000100000004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AABB000200000004 /* Assets.xcassets */; };
+		AABB000100000010 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000010 /* Helpers.swift */; };
+		AABB000100000011 /* Scenario01_DirectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000011 /* Scenario01_DirectView.swift */; };
+		AABB000100000012 /* Scenario02_ViewContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000012 /* Scenario02_ViewContainerView.swift */; };
+		AABB000100000013 /* Scenario03_ReturnStatementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000013 /* Scenario03_ReturnStatementView.swift */; };
+		AABB000100000014 /* Scenario04_TernaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000014 /* Scenario04_TernaryView.swift */; };
+		AABB000100000015 /* Scenario05_WithAnimationTrailingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000015 /* Scenario05_WithAnimationTrailingView.swift */; };
+		AABB000100000016 /* Scenario06_WithAnimationParentheticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000016 /* Scenario06_WithAnimationParentheticalView.swift */; };
+		AABB000100000017 /* Scenario07_IfElseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000017 /* Scenario07_IfElseView.swift */; };
+		AABB000100000018 /* Scenario08_SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000018 /* Scenario08_SwitchView.swift */; };
+		AABB000100000019 /* Scenario09_GuardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000019 /* Scenario09_GuardView.swift */; };
+		AABB000100000020 /* Scenario10_IfConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000020 /* Scenario10_IfConfigView.swift */; };
+		AABB000100000021 /* Scenario11_MultiStatementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000021 /* Scenario11_MultiStatementView.swift */; };
+		AABB000100000022 /* Scenario12_SideEffectBeforeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000022 /* Scenario12_SideEffectBeforeView.swift */; };
+		AABB000100000023 /* Scenario13_DeepNestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000023 /* Scenario13_DeepNestingView.swift */; };
+		AABB000100000024 /* Scenario14_EmptyBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000024 /* Scenario14_EmptyBodyView.swift */; };
+		AABB000100000025 /* Scenario15_ForceUnwrapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000025 /* Scenario15_ForceUnwrapView.swift */; };
+		AABB000100000026 /* Scenario16_TernaryNestedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000026 /* Scenario16_TernaryNestedView.swift */; };
+		AABB000100000027 /* Scenario17_WithGuardAndElseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000027 /* Scenario17_WithGuardAndElseView.swift */; };
+		AABB000100000028 /* Scenario21_NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000028 /* Scenario21_NavigationView.swift */; };
+		AABB000100000029 /* Scenario22_ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000029 /* Scenario22_ScrollView.swift */; };
+		AABB000100000030 /* Scenario23_TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000030 /* Scenario23_TabView.swift */; };
+		AABB000100000031 /* Scenario24_ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB000200000031 /* Scenario24_ContainerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		51F133FA2FE53236004D0438 /* Scenario18_FunctionCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario18_FunctionCall.swift; sourceTree = "<group>"; };
+		51F133FD2FE53D03004D0438 /* Scenario19_Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario19_Group.swift; sourceTree = "<group>"; };
+		51F133FF2FE53D77004D0438 /* Scenario20_List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario20_List.swift; sourceTree = "<group>"; };
+		51F134012FE58111004D0438 /* Scenario25_CommentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario25_CommentedView.swift; sourceTree = "<group>"; };
+		AABB000200000001 /* BTTInstrumentorTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTTInstrumentorTestApp.swift; sourceTree = "<group>"; };
+		AABB000200000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AABB000200000004 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AABB000200000005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AABB000200000006 /* BTTInstrumentorTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTTInstrumentorTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABB000200000010 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		AABB000200000011 /* Scenario01_DirectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario01_DirectView.swift; sourceTree = "<group>"; };
+		AABB000200000012 /* Scenario02_ViewContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario02_ViewContainerView.swift; sourceTree = "<group>"; };
+		AABB000200000013 /* Scenario03_ReturnStatementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario03_ReturnStatementView.swift; sourceTree = "<group>"; };
+		AABB000200000014 /* Scenario04_TernaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario04_TernaryView.swift; sourceTree = "<group>"; };
+		AABB000200000015 /* Scenario05_WithAnimationTrailingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario05_WithAnimationTrailingView.swift; sourceTree = "<group>"; };
+		AABB000200000016 /* Scenario06_WithAnimationParentheticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario06_WithAnimationParentheticalView.swift; sourceTree = "<group>"; };
+		AABB000200000017 /* Scenario07_IfElseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario07_IfElseView.swift; sourceTree = "<group>"; };
+		AABB000200000018 /* Scenario08_SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario08_SwitchView.swift; sourceTree = "<group>"; };
+		AABB000200000019 /* Scenario09_GuardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario09_GuardView.swift; sourceTree = "<group>"; };
+		AABB000200000020 /* Scenario10_IfConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario10_IfConfigView.swift; sourceTree = "<group>"; };
+		AABB000200000021 /* Scenario11_MultiStatementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario11_MultiStatementView.swift; sourceTree = "<group>"; };
+		AABB000200000022 /* Scenario12_SideEffectBeforeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario12_SideEffectBeforeView.swift; sourceTree = "<group>"; };
+		AABB000200000023 /* Scenario13_DeepNestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario13_DeepNestingView.swift; sourceTree = "<group>"; };
+		AABB000200000024 /* Scenario14_EmptyBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario14_EmptyBodyView.swift; sourceTree = "<group>"; };
+		AABB000200000025 /* Scenario15_ForceUnwrapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario15_ForceUnwrapView.swift; sourceTree = "<group>"; };
+		AABB000200000026 /* Scenario16_TernaryNestedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario16_TernaryNestedView.swift; sourceTree = "<group>"; };
+		AABB000200000027 /* Scenario17_WithGuardAndElseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario17_WithGuardAndElseView.swift; sourceTree = "<group>"; };
+		AABB000200000028 /* Scenario21_NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario21_NavigationView.swift; sourceTree = "<group>"; };
+		AABB000200000029 /* Scenario22_ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario22_ScrollView.swift; sourceTree = "<group>"; };
+		AABB000200000030 /* Scenario23_TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario23_TabView.swift; sourceTree = "<group>"; };
+		AABB000200000031 /* Scenario24_ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario24_ContainerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AABB000300000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51F133F62FE4150D004D0438 /* BlueTriangle in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		51F133F02FE40CAF004D0438 /* Scenario */ = {
+			isa = PBXGroup;
+			children = (
+				51F134012FE58111004D0438 /* Scenario25_CommentedView.swift */,
+				AABB000200000011 /* Scenario01_DirectView.swift */,
+				AABB000200000012 /* Scenario02_ViewContainerView.swift */,
+				AABB000200000013 /* Scenario03_ReturnStatementView.swift */,
+				AABB000200000014 /* Scenario04_TernaryView.swift */,
+				AABB000200000015 /* Scenario05_WithAnimationTrailingView.swift */,
+				AABB000200000016 /* Scenario06_WithAnimationParentheticalView.swift */,
+				AABB000200000017 /* Scenario07_IfElseView.swift */,
+				AABB000200000018 /* Scenario08_SwitchView.swift */,
+				AABB000200000019 /* Scenario09_GuardView.swift */,
+				AABB000200000020 /* Scenario10_IfConfigView.swift */,
+				AABB000200000021 /* Scenario11_MultiStatementView.swift */,
+				AABB000200000022 /* Scenario12_SideEffectBeforeView.swift */,
+				AABB000200000023 /* Scenario13_DeepNestingView.swift */,
+				AABB000200000024 /* Scenario14_EmptyBodyView.swift */,
+				AABB000200000025 /* Scenario15_ForceUnwrapView.swift */,
+				AABB000200000026 /* Scenario16_TernaryNestedView.swift */,
+				AABB000200000027 /* Scenario17_WithGuardAndElseView.swift */,
+				51F133FA2FE53236004D0438 /* Scenario18_FunctionCall.swift */,
+				51F133FD2FE53D03004D0438 /* Scenario19_Group.swift */,
+				51F133FF2FE53D77004D0438 /* Scenario20_List.swift */,
+				AABB000200000028 /* Scenario21_NavigationView.swift */,
+				AABB000200000029 /* Scenario22_ScrollView.swift */,
+				AABB000200000030 /* Scenario23_TabView.swift */,
+				AABB000200000031 /* Scenario24_ContainerView.swift */,
+			);
+			path = Scenario;
+			sourceTree = "<group>";
+		};
+		AABB000400000001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AABB000200000006 /* BTTInstrumentorTestApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AABB000400000002 /* BTTInstrumentorTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				AABB000200000001 /* BTTInstrumentorTestApp.swift */,
+				AABB000200000002 /* ContentView.swift */,
+				AABB000200000010 /* Helpers.swift */,
+				51F133F02FE40CAF004D0438 /* Scenario */,
+				AABB000200000004 /* Assets.xcassets */,
+				AABB000200000005 /* Info.plist */,
+			);
+			path = BTTInstrumentorTestApp;
+			sourceTree = "<group>";
+		};
+		AABB000400000003 = {
+			isa = PBXGroup;
+			children = (
+				AABB000400000002 /* BTTInstrumentorTestApp */,
+				AABB000400000001 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AABB000500000001 /* BTTInstrumentorTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AABB000700000002 /* Build configuration list for PBXNativeTarget "BTTInstrumentorTestApp" */;
+			buildPhases = (
+				AABB000600000001 /* Sources */,
+				AABB000300000001 /* Frameworks */,
+				AABB000600000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BTTInstrumentorTestApp;
+			packageProductDependencies = (
+				51F133F52FE4150D004D0438 /* BlueTriangle */,
+			);
+			productName = BTTInstrumentorTestApp;
+			productReference = AABB000200000006 /* BTTInstrumentorTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AABB000800000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AABB000500000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = AABB000700000001 /* Build configuration list for PBXProject "BTTInstrumentorTestApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AABB000400000003;
+			packageReferences = (
+				51F133F42FE4150D004D0438 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
+			);
+			productRefGroup = AABB000400000001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AABB000500000001 /* BTTInstrumentorTestApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AABB000600000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AABB000100000004 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AABB000600000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AABB000100000001 /* BTTInstrumentorTestApp.swift in Sources */,
+				AABB000100000002 /* ContentView.swift in Sources */,
+				AABB000100000010 /* Helpers.swift in Sources */,
+				51F133FB2FE53249004D0438 /* Scenario18_FunctionCall.swift in Sources */,
+				AABB000100000011 /* Scenario01_DirectView.swift in Sources */,
+				AABB000100000012 /* Scenario02_ViewContainerView.swift in Sources */,
+				AABB000100000013 /* Scenario03_ReturnStatementView.swift in Sources */,
+				51F133FE2FE53D21004D0438 /* Scenario19_Group.swift in Sources */,
+				AABB000100000014 /* Scenario04_TernaryView.swift in Sources */,
+				AABB000100000015 /* Scenario05_WithAnimationTrailingView.swift in Sources */,
+				AABB000100000016 /* Scenario06_WithAnimationParentheticalView.swift in Sources */,
+				AABB000100000017 /* Scenario07_IfElseView.swift in Sources */,
+				AABB000100000018 /* Scenario08_SwitchView.swift in Sources */,
+				AABB000100000019 /* Scenario09_GuardView.swift in Sources */,
+				AABB000100000020 /* Scenario10_IfConfigView.swift in Sources */,
+				51F134002FE53D83004D0438 /* Scenario20_List.swift in Sources */,
+				AABB000100000021 /* Scenario11_MultiStatementView.swift in Sources */,
+				AABB000100000022 /* Scenario12_SideEffectBeforeView.swift in Sources */,
+				AABB000100000023 /* Scenario13_DeepNestingView.swift in Sources */,
+				AABB000100000024 /* Scenario14_EmptyBodyView.swift in Sources */,
+				AABB000100000025 /* Scenario15_ForceUnwrapView.swift in Sources */,
+				AABB000100000026 /* Scenario16_TernaryNestedView.swift in Sources */,
+				AABB000100000027 /* Scenario17_WithGuardAndElseView.swift in Sources */,
+				AABB000100000028 /* Scenario21_NavigationView.swift in Sources */,
+				AABB000100000029 /* Scenario22_ScrollView.swift in Sources */,
+				AABB000100000030 /* Scenario23_TabView.swift in Sources */,
+				51F134022FE58132004D0438 /* Scenario25_CommentedView.swift in Sources */,
+				AABB000100000031 /* Scenario24_ContainerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AABB000900000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_EXCEPTION = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AABB000900000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_EXCEPTION = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AABB000900000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = BTTInstrumentorTestApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluetriangle.BTTInstrumentorTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AABB000900000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = BTTInstrumentorTestApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluetriangle.BTTInstrumentorTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AABB000700000001 /* Build configuration list for PBXProject "BTTInstrumentorTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABB000900000001 /* Debug */,
+				AABB000900000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AABB000700000002 /* Build configuration list for PBXNativeTarget "BTTInstrumentorTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABB000900000003 /* Debug */,
+				AABB000900000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		51F133F42FE4150D004D0438 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JP-aloha/btt-swift-sdk.git";
+			requirement = {
+				branch = feature/swiftui_auto_track;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		51F133F52FE4150D004D0438 /* BlueTriangle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51F133F42FE4150D004D0438 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
+			productName = BlueTriangle;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = AABB000800000001 /* Project object */;
+}

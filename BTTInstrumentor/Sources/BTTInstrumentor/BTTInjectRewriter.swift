@@ -72,7 +72,7 @@ final class BTTInjectRewriter: SyntaxRewriter {
             complexViews.append(name)
             if !filePath.isEmpty {
                 let fileName = URL(fileURLWithPath: filePath).lastPathComponent
-                BTTLog.warn("\(fileName): \(name) has a view body too complex for auto-instrumentation — add .\(BTTConstants.trackModifier)() manually to the last view in its body")
+                BTTLog.warn("\(fileName): \(name) has a view body too complex for auto-instrumentation")
             }
             return DeclSyntax(node)
         }

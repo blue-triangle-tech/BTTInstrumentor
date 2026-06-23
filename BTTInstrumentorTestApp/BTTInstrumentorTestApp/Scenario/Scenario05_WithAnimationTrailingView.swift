@@ -1,5 +1,4 @@
 import SwiftUI
-import BlueTriangle
 
 // MARK: - Scenario 05: withAnimation with trailing closure
 
@@ -7,7 +6,6 @@ struct WithAnimationTrailingView: View {
     var body: some View {
         withAnimation(.easeIn) {
             Text("Animated")
-            .bttTrack("\(Self.self)")
         }
     }
 }
@@ -38,7 +36,6 @@ struct WithAnimationTrailingScreen: View {
         }
         .navigationTitle("With Animation Trailing")
         .navigationBarTitleDisplayMode(.large)
-        .bttTrack("\(Self.self)")
     }
 }
 

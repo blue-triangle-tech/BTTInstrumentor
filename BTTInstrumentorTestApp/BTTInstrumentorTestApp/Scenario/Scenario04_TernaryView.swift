@@ -1,14 +1,11 @@
 import SwiftUI
-import BlueTriangle
 
 // MARK: - Scenario 04: Ternary expression
 
 struct TernaryView: View {
     @State private var flag = false
     var body: some View {
-        flag ? Text("True")
-        .bttTrack("\(Self.self)") : Text("False")
-        .bttTrack("\(Self.self)")
+        flag ? Text("True") : Text("False")
     }
 }
 
@@ -39,7 +36,6 @@ struct TernaryScreen: View {
         }
         .navigationTitle("Ternary")
         .navigationBarTitleDisplayMode(.large)
-        .bttTrack("\(Self.self)")
     }
 }
 

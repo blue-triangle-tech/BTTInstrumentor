@@ -1,5 +1,4 @@
 import SwiftUI
-import BlueTriangle
 
 struct ContentView: View {
     var body: some View {
@@ -32,6 +31,5 @@ struct ContentView: View {
             }
             .navigationTitle("Body Scenarios")
         }
-        .bttTrack("\(Self.self)")
     }
 }

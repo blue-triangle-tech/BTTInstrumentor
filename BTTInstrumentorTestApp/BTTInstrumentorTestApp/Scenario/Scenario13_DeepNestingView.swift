@@ -1,5 +1,4 @@
 import SwiftUI
-import BlueTriangle
 
 // MARK: - Scenario 13: Deep nesting exceeding injectionDepth (rewriter skips)
 
@@ -14,7 +13,6 @@ struct DeepNestingView: View {
                 if c {
                     if d {
                         Text("Deep")
-                            .bttTrack("Screen")
                     }
                 }
             }
@@ -41,7 +39,6 @@ struct DeepNestingScreen: View {
         }
         .navigationTitle("Deep Nesting")
         .navigationBarTitleDisplayMode(.large)
-        .bttTrack("\(Self.self)")
     }
 }
 

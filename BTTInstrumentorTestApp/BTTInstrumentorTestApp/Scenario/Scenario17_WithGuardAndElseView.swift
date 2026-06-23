@@ -6,17 +6,14 @@
 //
 
 import SwiftUI
-import BlueTriangle
 
 struct WithGuardAndElseView: View {
     var data: String? = "data"
     var body: some View {
         guard let data else {
-            return AnyView(EmptyView()
-        .bttTrack("\(Self.self)"))
+            return AnyView(EmptyView())
         }
-        return AnyView(Text(data)
-        .bttTrack("\(Self.self)"))
+        return AnyView(Text(data))
     }
 }
 
@@ -49,7 +46,6 @@ struct WithGuardAndElseScreen: View {
         }
         .navigationTitle("Guard With Else")
         .navigationBarTitleDisplayMode(.large)
-        .bttTrack("\(Self.self)")
     }
 }
 

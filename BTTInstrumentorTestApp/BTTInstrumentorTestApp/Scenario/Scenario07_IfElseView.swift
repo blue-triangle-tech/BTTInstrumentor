@@ -1,5 +1,4 @@
 import SwiftUI
-import BlueTriangle
 
 // MARK: - Scenario 07: if/else branches
 
@@ -8,10 +7,8 @@ struct IfElseView: View {
     var body: some View {
         if isLoggedIn {
             HomeView()
-            .bttTrack("\(Self.self)")
         } else {
             LoginView()
-            .bttTrack("\(Self.self)")
         }
     }
 }
@@ -46,7 +43,6 @@ struct IfElseScreen: View {
         }
         .navigationTitle("If Else")
         .navigationBarTitleDisplayMode(.large)
-        .bttTrack("\(Self.self)")
     }
 }
 

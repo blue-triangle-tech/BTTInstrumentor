@@ -7,7 +7,6 @@
 
 
 import SwiftUI
-import BlueTriangle
 
 struct GroupView: View {
     var body: some View {
@@ -16,7 +15,6 @@ struct GroupView: View {
                 Text("A")
             }
         }
-        .bttTrack("\(Self.self)")
     }
 }
 

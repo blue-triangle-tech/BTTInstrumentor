@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import BlueTriangle
 
 struct ListView: View {
     var body: some View {
@@ -23,7 +22,6 @@ struct ListView: View {
                 Text("D")
             }
         }
-        .bttTrack("\(Self.self)")
     }
 }
 

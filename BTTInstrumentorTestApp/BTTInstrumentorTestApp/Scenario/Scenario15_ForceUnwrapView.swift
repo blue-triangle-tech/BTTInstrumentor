@@ -1,5 +1,4 @@
 import SwiftUI
-import BlueTriangle
 
 // MARK: - Scenario 15: Force-unwrap optional view
 
@@ -7,7 +6,6 @@ struct ForceUnwrapView: View {
     var optionalView: AnyView? = AnyView(Text("Unwrapped"))
     var body: some View {
         optionalView!
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -36,7 +34,6 @@ struct ForceUnwrapScreen: View {
         }
         .navigationTitle("Force Unwrap")
         .navigationBarTitleDisplayMode(.large)
-        .bttTrack("\(Self.self)")
     }
 }
 

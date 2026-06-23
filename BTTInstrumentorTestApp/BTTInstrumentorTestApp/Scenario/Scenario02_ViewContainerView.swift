@@ -1,5 +1,4 @@
 import SwiftUI
-import BlueTriangle
 
 // MARK: - Scenario 02: View container (VStack/HStack/ZStack)
 
@@ -9,7 +8,6 @@ struct ViewContainerView: View {
             Text("A")
             Text("B")
         }
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -40,7 +38,6 @@ struct ViewContainerScreen: View {
         }
         .navigationTitle("View Container")
         .navigationBarTitleDisplayMode(.large)
-        .bttTrack("\(Self.self)")
     }
 }
 

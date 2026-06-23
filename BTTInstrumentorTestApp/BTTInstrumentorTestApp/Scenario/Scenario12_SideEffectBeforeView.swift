@@ -1,6 +1,4 @@
-// btt:ignore
 import SwiftUI
-import BlueTriangle
 
 // MARK: - Scenario 12: Side-effect (let binding) before real view
 
@@ -10,7 +8,6 @@ struct SideEffectBeforeView: View {
         return Text(message)
     }
 }
-
 
 /*
  struct SideEffectBeforeView: View {

@@ -1,5 +1,4 @@
 import SwiftUI
-import BlueTriangle
 
 // MARK: - Scenario 08: switch expression
 
@@ -8,11 +7,8 @@ struct SwitchView: View {
     var body: some View {
         switch tab {
         case .home:    HomeView()
-        .bttTrack("\(Self.self)")
         case .profile: ProfileView()
-        .bttTrack("\(Self.self)")
         case .extra:   MainView()
-        .bttTrack("\(Self.self)")
         }
     }
 }
@@ -51,7 +47,6 @@ struct SwitchScreen: View {
         }
         .navigationTitle("Switch")
         .navigationBarTitleDisplayMode(.large)
-        .bttTrack("\(Self.self)")
     }
 }
 

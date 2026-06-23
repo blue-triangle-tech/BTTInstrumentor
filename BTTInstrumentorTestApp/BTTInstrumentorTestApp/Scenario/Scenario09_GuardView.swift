@@ -1,5 +1,4 @@
 import SwiftUI
-import BlueTriangle
 
 // MARK: - Scenario 09: guard with early return
 
@@ -7,11 +6,9 @@ struct GuardView: View {
     var item: String? = "hello"
     var body: some View {
         guard let item else {
-            return AnyView(Text("Empty")
-        .bttTrack("\(Self.self)"))
+            return AnyView(Text("Empty"))
         }
-        return AnyView(Text(item)
-        .bttTrack("\(Self.self)"))
+        return AnyView(Text(item))
     }
 }
 
@@ -44,7 +41,6 @@ struct GuardScreen: View {
         }
         .navigationTitle("Guard")
         .navigationBarTitleDisplayMode(.large)
-        .bttTrack("\(Self.self)")
     }
 }
 

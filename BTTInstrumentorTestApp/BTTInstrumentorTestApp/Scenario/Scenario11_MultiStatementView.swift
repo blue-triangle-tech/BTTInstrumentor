@@ -1,5 +1,4 @@
 import SwiftUI
-import BlueTriangle
 
 // MARK: - Scenario 11: @ViewBuilder multiple top-level views
 
@@ -8,7 +7,6 @@ struct MultiStatementView: View {
         HeaderView()
         MainView()
         FooterView()
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -40,7 +38,6 @@ struct MultiStatementScreen: View {
         }
         .navigationTitle("Multi Statement")
         .navigationBarTitleDisplayMode(.large)
-        .bttTrack("\(Self.self)")
     }
 }
 

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import BlueTriangle
 
 struct TabViewScenario: View {
     var body: some View {
@@ -16,7 +15,6 @@ struct TabViewScenario: View {
             Text("Profile")
                 .tabItem { Label("Profile", systemImage: "person") }
         }
-        .bttTrack("\(Self.self)")
     }
 }
 

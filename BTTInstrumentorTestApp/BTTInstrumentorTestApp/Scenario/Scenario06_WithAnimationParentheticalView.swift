@@ -1,5 +1,4 @@
 import SwiftUI
-import BlueTriangle
 
 // MARK: - Scenario 06: withAnimation with parenthetical closure
 
@@ -8,7 +7,6 @@ struct WithAnimationParentheticalView: View {
         withAnimation(.easeIn, {
             Text("Parenthetical")
         })
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -38,7 +36,6 @@ struct WithAnimationParentheticalScreen: View {
         }
         .navigationTitle("With Animation Parenthetical")
         .navigationBarTitleDisplayMode(.large)
-        .bttTrack("\(Self.self)")
     }
 }
 

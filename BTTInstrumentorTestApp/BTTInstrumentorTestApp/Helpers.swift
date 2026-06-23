@@ -1,5 +1,4 @@
 import SwiftUI
-import BlueTriangle
 
 enum Tab { case home, profile, extra }
 
@@ -8,7 +7,6 @@ struct HeaderView: View {
         VStack {
             Text("Header View")
         }
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -17,7 +15,6 @@ struct FooterView: View {
         VStack {
             Text("Footer View")
         }
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -26,7 +23,6 @@ struct MainView: View {
         VStack {
             Text("Main View")
         }
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -35,7 +31,6 @@ struct DetailView: View {
         VStack {
             Text("Detail View")
         }
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -44,7 +39,6 @@ struct LoginView: View {
         VStack {
             Text("Login View")
         }
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -53,7 +47,6 @@ struct HomeView: View {
         VStack {
             Text("Home View")
         }
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -62,7 +55,6 @@ struct ProfileView: View {
         VStack {
             Text("Profile View")
         }
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -71,7 +63,6 @@ struct DebugView: View {
         VStack {
             Text("Debug View")
         }
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -80,7 +71,6 @@ struct ReleaseView: View {
         VStack {
             Text("Release View")
         }
-        .bttTrack("\(Self.self)")
     }
 }
 
@@ -89,6 +79,5 @@ struct LoadingView: View {
         VStack {
             Text("Loading View")
         }
-        .bttTrack("\(Self.self)")
     }
 }

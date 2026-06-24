@@ -18,7 +18,7 @@ struct ViewContainerView: View {
              Text("A")
              Text("B")
          }
-         .bttTrackScreen("\(Self.self)")
+         .bttTrack("\(Self.self)")
      }
  }
  */

@@ -23,10 +23,10 @@ struct WithGuardAndElseView: View {
      var body: some View {
          guard let data else {
              return AnyView(EmptyView()
-                 .bttTrackScreen("\(Self.self)"))
+                 .bttTrack("\(Self.self)"))
          }
          return AnyView(Text(data)
-             .bttTrackScreen("\(Self.self)"))
+             .bttTrack("\(Self.self)"))
      }
  }
  */
@@ -55,7 +55,7 @@ struct WithGuardAndElseScreen: View {
          VStack(alignment: .leading, spacing: 16) { ... }
              .navigationTitle("Guard With Else")
              .navigationBarTitleDisplayMode(.large)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */

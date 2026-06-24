@@ -14,7 +14,7 @@ struct SideEffectBeforeView: View {
      var body: some View {
          let message = "appeared"
          return Text(message)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */
@@ -43,7 +43,7 @@ struct SideEffectBeforeScreen: View {
          VStack(alignment: .leading, spacing: 16) { ... }
              .navigationTitle("Side Effect Before View")
              .navigationBarTitleDisplayMode(.large)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */

@@ -14,7 +14,7 @@ struct ForceUnwrapView: View {
      var optionalView: AnyView? = AnyView(Text("Unwrapped"))
      var body: some View {
          optionalView!
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */
@@ -43,7 +43,7 @@ struct ForceUnwrapScreen: View {
          VStack(alignment: .leading, spacing: 16) { ... }
              .navigationTitle("Force Unwrap")
              .navigationBarTitleDisplayMode(.large)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */

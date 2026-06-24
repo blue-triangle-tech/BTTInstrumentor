@@ -23,7 +23,7 @@ struct FunctionCall1: View {
 struct FunctionCall1: View {
     var body: some View {
         myView()
-        .bttTrackScreen("\(Self.self)")
+        .bttTrack("\(Self.self)")
     }
     
     func myView() -> some View {
@@ -56,10 +56,10 @@ struct ViewContainerView2: View {
     var body: some View {
         if flag {
             myView()
-            .bttTrackScreen("\(Self.self)")
+            .bttTrack("\(Self.self)")
         } else {
             myView()
-            .bttTrackScreen("\(Self.self)")
+            .bttTrack("\(Self.self)")
         }
     }
     

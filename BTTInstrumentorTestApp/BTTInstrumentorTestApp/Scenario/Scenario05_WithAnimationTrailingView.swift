@@ -15,7 +15,7 @@ struct WithAnimationTrailingView: View {
      var body: some View {
          withAnimation(.easeIn) {
              Text("Animated")
-                 .bttTrackScreen("\(Self.self)")
+                 .bttTrack("\(Self.self)")
          }
      }
  }
@@ -45,7 +45,7 @@ struct WithAnimationTrailingScreen: View {
          VStack(alignment: .leading, spacing: 16) { ... }
              .navigationTitle("With Animation Trailing")
              .navigationBarTitleDisplayMode(.large)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */

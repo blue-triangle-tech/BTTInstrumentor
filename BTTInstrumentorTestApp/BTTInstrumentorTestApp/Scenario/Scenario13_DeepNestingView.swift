@@ -48,7 +48,7 @@ struct DeepNestingScreen: View {
          VStack(alignment: .leading, spacing: 16) { ... }
              .navigationTitle("Deep Nesting")
              .navigationBarTitleDisplayMode(.large)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */

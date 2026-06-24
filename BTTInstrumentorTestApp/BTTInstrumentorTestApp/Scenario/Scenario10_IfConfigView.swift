@@ -17,10 +17,8 @@ struct IfConfigView: View {
      var body: some View {
          #if DEBUG
          DebugView()
-             .bttTrackScreen("\(Self.self)")
          #else
          ReleaseView()
-             .bttTrackScreen("\(Self.self)")
          #endif
      }
  }
@@ -50,7 +48,7 @@ struct IfConfigScreen: View {
          VStack(alignment: .leading, spacing: 16) { ... }
              .navigationTitle("#if Config")
              .navigationBarTitleDisplayMode(.large)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */

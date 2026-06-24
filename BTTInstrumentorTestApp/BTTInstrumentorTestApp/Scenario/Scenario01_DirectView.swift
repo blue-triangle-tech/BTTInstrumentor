@@ -12,7 +12,7 @@ struct DirectView: View {
  struct DirectView: View {
      var body: some View {
          Text("Hello")
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */
@@ -41,7 +41,7 @@ struct DirectViewScreen: View {
          VStack(alignment: .leading, spacing: 16) { ... }
              .navigationTitle("Direct View")
              .navigationBarTitleDisplayMode(.large)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */

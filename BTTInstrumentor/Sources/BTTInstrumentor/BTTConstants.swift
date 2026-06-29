@@ -54,7 +54,7 @@ enum BTTConstants {
     static let rootPackageResolved = "Package.resolved"
 
     // MARK: - Help text
-    static let docsURL = "https://help.bluetriangle.com/instrumentation"
+    static let docsURL = "https://help.bluetriangle.com/hc/en-us/articles/52918697353875-iOS-SwiftUI-SDK-Instrumentation-Automated-Screen-Tracking"
     static let helpText = """
 
     BTTInstrumentor — BlueTriangle SwiftUI Screen Tracking

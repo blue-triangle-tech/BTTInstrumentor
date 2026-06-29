@@ -1,8 +1,8 @@
-#Introduction
+# Introduction
 
 The Blue Triangle iOS SDK includes BTTInstrumenter, a companion command-line tool that automatically instruments SwiftUI views in your iOS app. Once integrated into your Xcode project, BTTInstrumenter runs on every build — eliminating the need to manually add instrumentation code to each view.
 
-##Setup
+## Setup
 
 **1. Install BTTInstrumentor**
 
@@ -10,7 +10,11 @@ Install the BlueTriangle SwiftUI instrumentor via Homebrew.:
 
 ```bash
 brew tap blue-triangle-tech/tools
+```
+```bash
 brew trust blue-triangle-tech/tools
+```
+```bash
 brew install bttinstrumentor
 ```
 

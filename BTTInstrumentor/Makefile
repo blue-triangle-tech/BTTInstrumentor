@@ -33,12 +33,12 @@ notarize:
 		--wait
 	rm BTTInstrumentor.zip
 
-# Install to /usr/local/bin
-install: build sign
-	sudo cp $(BINARY) /usr/local/bin/BTTInstrumentor
-
-# Full release — build, sign, notarize
+# Build, sign, notarize — ready for distribution
 release: build sign notarize
+
+# Install to /usr/local/bin
+install:
+	sudo cp $(BINARY) /usr/local/bin/BTTInstrumentor
 
 # Print SHA for formula update
 sha:

@@ -66,7 +66,7 @@ enum BTTConstants {
 
     COMMANDS
       install     Adds scheme pre-action, saves target, and optionally
-                  injects .bttTrackScreen() into SwiftUI views right away
+                  injects .bttTrack() into SwiftUI views right away
       uninstall   Removes instrumentation for a target or full clean up
       check       Verifies all setup steps with ✓ / ✗ status
 

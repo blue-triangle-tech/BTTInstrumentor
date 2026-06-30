@@ -72,7 +72,7 @@ final class BTTInjectRewriter: SyntaxRewriter {
             complexViews.append(name)
             if !filePath.isEmpty {
                 let fileName = URL(fileURLWithPath: filePath).lastPathComponent
-                BTTLog.warn("\(fileName): \(name) has a view body too complex for auto-instrumentation — add .\(BTTConstants.trackModifier)() manually to the last view in its body")
+                BTTLog.warn("\(fileName): \(name) has a view body too complex for auto-instrumentation")
             }
             return DeclSyntax(node)
         }
@@ -149,7 +149,14 @@ final class BTTInjectRewriter: SyntaxRewriter {
         // processed regardless — every return path needs tracking.
         var expressionDone = false
 
+        // Statements after an explicit `return` are dead code — skip them.
+        let firstReturnIdx = stmts.firstIndex(where: {
+            if case .stmt(let s) = $0.item { return s.is(ReturnStmtSyntax.self) }
+            return false
+        })
+
         for (i, item) in stmts.enumerated().reversed() {
+            if let ri = firstReturnIdx, i > ri { continue }
 
             switch item.item {
 

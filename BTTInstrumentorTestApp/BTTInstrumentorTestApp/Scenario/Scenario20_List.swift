@@ -41,7 +41,7 @@ struct ListView: View {
                  Text("D")
              }
          }
-         .bttTrackScreen("\(Self.self)")
+         .bttTrack("\(Self.self)")
      }
  }
  */

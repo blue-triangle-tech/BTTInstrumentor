@@ -28,9 +28,14 @@ final class BTTDiagnostics {
         let fm            = FileManager.default
 
         var step = 0
+        var failed = 0
         func next() -> Int { step += 1; return step }
+        func check(_ n: Int, exists: Bool, pass: String, fail: String, diagnose: String? = nil) {
+            if !exists { failed += 1 }
+            checkItem(n, exists: exists, pass: pass, fail: fail, diagnose: diagnose)
+        }
 
-        checkItem(next(),
+        check(next(),
             exists: true,
             pass: "Project: \(URL(fileURLWithPath: xcodeprojPath).lastPathComponent)",
             fail: ""
@@ -40,14 +45,14 @@ final class BTTDiagnostics {
             let currentName = URL(fileURLWithPath: xcodeprojPath).lastPathComponent
             let namesMatch  = savedName == currentName
 
-            checkItem(next(),
+            check(next(),
                 exists: namesMatch,
                 pass: "Saved project matches: \(savedName)",
                 fail: "Saved project mismatch — run 'BTTInstrumentor install'",
                 diagnose: "saved: \(savedName)\n       current: \(currentName)"
             )
         } else {
-            checkItem(next(),
+            check(next(),
                 exists: false,
                 pass: "",
                 fail: "No project path saved in config — run 'BTTInstrumentor install'",
@@ -56,18 +61,15 @@ final class BTTDiagnostics {
         }
 
         let checker = BTTVersionChecker(xcodeprojPath: xcodeprojPath)
-        if BTTConstants.isForkedVersion {
-            BTTLog.checklist("\(next()). ⚠ BlueTriangle: isForkedVersion = true — version check skipped.", ok: false)
-            BTTLog.checklist("    ↳ set BTTConstants.isForkedVersion = false before release to enable this check", ok: false)
-        } else if let version = checker.resolvedVersion() {
-            checkItem(next(),
+        if let version = checker.resolvedVersion() {
+            check(next(),
                 exists: BTTVersionChecker.isVersion(version, atLeast: BTTConstants.minBTTVersion),
                 pass: "BlueTriangle version: \(version) (>= \(BTTConstants.minBTTVersion))",
                 fail: "BlueTriangle version: \(version) (requires >= \(BTTConstants.minBTTVersion))",
                 diagnose: "Package.resolved pins BlueTriangle \(version); open Xcode → File → Packages → Update to Latest Package Versions"
             )
         } else {
-            checkItem(next(),
+            check(next(),
                 exists: false,
                 pass: "",
                 fail: "BlueTriangle version: not found in Package.resolved",
@@ -120,7 +122,7 @@ final class BTTDiagnostics {
                 if let native = xcodeproj.pbxproj.nativeTargets.first(where: { $0.name == target }) {
                     let linkedProducts = (native.packageProductDependencies ?? []).map { $0.productName }
                     let hasBTT = linkedProducts.contains(BTTConstants.bttProductName)
-                    checkItem(next(),
+                    check(next(),
                         exists: hasBTT,
                         pass: "\(BTTConstants.bttProductName) linked: \(target)",
                         fail: "\(BTTConstants.bttProductName) not linked in '\(target)' — add BlueTriangle SDK to this target",
@@ -138,7 +140,7 @@ final class BTTDiagnostics {
                 return content.contains(BTTConstants.preActionTitle) &&
                        content.contains("BlueprintName = \"\(target)\"")
             }
-            checkItem(next(),
+            check(next(),
                 exists: hasPreAction,
                 pass: "Pre-action in scheme: \(target)",
                 fail: "Pre-action missing for '\(target)' (quit Xcode, mandatory for proper instrumentation) — run 'BTTInstrumentor install'",

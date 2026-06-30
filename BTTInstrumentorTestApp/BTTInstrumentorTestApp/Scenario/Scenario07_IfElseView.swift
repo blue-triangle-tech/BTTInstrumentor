@@ -19,10 +19,10 @@ struct IfElseView: View {
      var body: some View {
          if isLoggedIn {
              HomeView()
-                 .bttTrackScreen("\(Self.self)")
+                 .bttTrack("\(Self.self)")
          } else {
              LoginView()
-                 .bttTrackScreen("\(Self.self)")
+                 .bttTrack("\(Self.self)")
          }
      }
  }
@@ -52,7 +52,7 @@ struct IfElseScreen: View {
          VStack(alignment: .leading, spacing: 16) { ... }
              .navigationTitle("If Else")
              .navigationBarTitleDisplayMode(.large)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */

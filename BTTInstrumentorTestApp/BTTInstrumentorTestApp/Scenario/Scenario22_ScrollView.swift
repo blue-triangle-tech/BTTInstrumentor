@@ -29,7 +29,7 @@ struct ScrollViewScenario: View {
                  Text("Item C")
              }
          }
-         .bttTrackScreen("\(Self.self)")
+         .bttTrack("\(Self.self)")
      }
  }
  */

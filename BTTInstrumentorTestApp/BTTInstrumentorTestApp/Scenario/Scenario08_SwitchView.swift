@@ -20,13 +20,13 @@ struct SwitchView: View {
          switch tab {
          case .home:
              HomeView()
-                 .bttTrackScreen("\(Self.self)")
+                 .bttTrack("\(Self.self)")
          case .profile:
              ProfileView()
-                 .bttTrackScreen("\(Self.self)")
+                 .bttTrack("\(Self.self)")
          case .extra:
              MainView()
-                 .bttTrackScreen("\(Self.self)")
+                 .bttTrack("\(Self.self)")
          }
      }
  }

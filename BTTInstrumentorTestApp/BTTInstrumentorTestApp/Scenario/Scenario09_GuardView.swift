@@ -18,10 +18,10 @@ struct GuardView: View {
      var body: some View {
          guard let item else {
              return AnyView(Text("Empty")
-                 .bttTrackScreen("\(Self.self)"))
+                 .bttTrack("\(Self.self)"))
          }
          return AnyView(Text(item)
-             .bttTrackScreen("\(Self.self)"))
+             .bttTrack("\(Self.self)"))
      }
  }
  */
@@ -50,7 +50,7 @@ struct GuardScreen: View {
          VStack(alignment: .leading, spacing: 16) { ... }
              .navigationTitle("Guard")
              .navigationBarTitleDisplayMode(.large)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */

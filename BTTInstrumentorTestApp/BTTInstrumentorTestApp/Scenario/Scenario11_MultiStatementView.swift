@@ -16,7 +16,6 @@ struct MultiStatementView: View {
          HeaderView()
          MainView()
          FooterView()
-             .bttTrackScreen("\(Self.self)")
      }
  }
  */

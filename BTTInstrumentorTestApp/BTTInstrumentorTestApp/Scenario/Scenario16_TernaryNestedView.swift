@@ -21,11 +21,11 @@ struct TernaryNestedView: View {
      @State private var state = 0
      var body: some View {
          state == 0 ? AnyView(Text("Zero")
-                          .bttTrackScreen("\(Self.self)")) :
+                          .bttTrack("\(Self.self)")) :
          state == 1 ? AnyView(Text("One")
-                          .bttTrackScreen("\(Self.self)")) :
+                          .bttTrack("\(Self.self)")) :
                       AnyView(Text("Other")
-                          .bttTrackScreen("\(Self.self)"))
+                          .bttTrack("\(Self.self)"))
      }
  }
  */
@@ -54,7 +54,7 @@ struct TernaryNestedScreen: View {
          VStack(alignment: .leading, spacing: 16) { ... }
              .navigationTitle("Nested Ternary")
              .navigationBarTitleDisplayMode(.large)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */

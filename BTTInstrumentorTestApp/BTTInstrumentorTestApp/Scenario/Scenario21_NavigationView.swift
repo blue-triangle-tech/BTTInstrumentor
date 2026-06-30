@@ -25,7 +25,7 @@ struct NavigationViewScenario: View {
                  Text("Inside Navigation")
              }
          }
-         .bttTrackScreen("\(Self.self)")
+         .bttTrack("\(Self.self)")
      }
  }
  */

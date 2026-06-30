@@ -38,7 +38,7 @@ struct CardContainer<Content: View>: View {
              Text("Title")
              Text("Subtitle")
          }
-         .bttTrackScreen("\(Self.self)")
+         .bttTrack("\(Self.self)")
      }
  }
  */

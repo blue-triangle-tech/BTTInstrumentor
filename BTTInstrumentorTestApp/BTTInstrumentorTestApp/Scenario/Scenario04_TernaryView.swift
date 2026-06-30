@@ -14,9 +14,9 @@ struct TernaryView: View {
      @State private var flag = false
      var body: some View {
          flag ? Text("True")
-                    .bttTrackScreen("\(Self.self)")
+                    .bttTrack("\(Self.self)")
               : Text("False")
-                    .bttTrackScreen("\(Self.self)")
+                    .bttTrack("\(Self.self)")
      }
  }
  */

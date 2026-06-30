@@ -26,7 +26,7 @@ struct GroupView: View {
                 Text("A")
             }
         }
-        .bttTrackScreen("\(Self.self)")
+        .bttTrack("\(Self.self)")
     }
 }
  */

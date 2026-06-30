@@ -42,7 +42,7 @@ struct EmptyBodyScreen: View {
          VStack(alignment: .leading, spacing: 16) { ... }
              .navigationTitle("Empty Body")
              .navigationBarTitleDisplayMode(.large)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */

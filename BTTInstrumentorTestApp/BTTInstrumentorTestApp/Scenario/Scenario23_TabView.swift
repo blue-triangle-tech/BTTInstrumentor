@@ -27,7 +27,7 @@ struct TabViewScenario: View {
              Text("Profile")
                  .tabItem { Label("Profile", systemImage: "person") }
          }
-         .bttTrackScreen("\(Self.self)")
+         .bttTrack("\(Self.self)")
      }
  }
  */

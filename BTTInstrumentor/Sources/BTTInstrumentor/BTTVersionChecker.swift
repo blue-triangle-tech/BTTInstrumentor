@@ -36,16 +36,6 @@ final class BTTVersionChecker {
 
     @discardableResult
     func checkAndProceed() -> Bool {
-        if BTTConstants.isForkedVersion {
-            if !BTTLog.nonInteractive {
-                BTTLog.warn("BTTConstants.isForkedVersion = true — version check skipped. Set to false before release.")
-                return true
-            } else {
-                BTTLog.error("BTTConstants.isForkedVersion = true. Production builds require a tagged release >= \(BTTConstants.minBTTVersion). Set isForkedVersion = false before release.")
-                return false
-            }
-        }
-
         guard let version = resolvedVersion() else {
             BTTLog.error("Could not find \(BTTConstants.bttProductName) SDK — please add it before proceeding.")
             return false

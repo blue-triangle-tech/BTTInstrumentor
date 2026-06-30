@@ -16,7 +16,7 @@ struct WithAnimationParentheticalView: View {
          withAnimation(.easeIn, {
              Text("Parenthetical")
          })
-         .bttTrackScreen("\(Self.self)")
+         .bttTrack("\(Self.self)")
      }
  }
  */
@@ -45,7 +45,7 @@ struct WithAnimationParentheticalScreen: View {
          VStack(alignment: .leading, spacing: 16) { ... }
              .navigationTitle("With Animation Parenthetical")
              .navigationBarTitleDisplayMode(.large)
-             .bttTrackScreen("\(Self.self)")
+             .bttTrack("\(Self.self)")
      }
  }
  */

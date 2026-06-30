@@ -10,13 +10,10 @@ import Foundation
 enum BTTConstants {
 
     // MARK: - BTTInstrumentor version
-    static let version = "1.0.1"
+    static let version = "1.0.0"
 
     // MARK: - SDK
     static let minBTTVersion        = "3.15.13"
-    /// Set to `true` when using a forked or development branch of the SDK.
-    /// Skips version check in interactive mode. Must be `false` for production release.
-    static let isForkedVersion      = true
 
     // MARK: - Package product names
     static let bttProductName            = "BlueTriangle"
@@ -54,7 +51,7 @@ enum BTTConstants {
     static let rootPackageResolved = "Package.resolved"
 
     // MARK: - Help text
-    static let docsURL = "https://help.bluetriangle.com/instrumentation"
+    static let docsURL = "https://help.bluetriangle.com/hc/en-us/articles/52918697353875-iOS-SwiftUI-SDK-Instrumentation-Automated-Screen-Tracking"
     static let helpText = """
 
     BTTInstrumentor — BlueTriangle SwiftUI Screen Tracking
@@ -66,7 +63,7 @@ enum BTTConstants {
 
     COMMANDS
       install     Adds scheme pre-action, saves target, and optionally
-                  injects .bttTrackScreen() into SwiftUI views right away
+                  injects .bttTrack() into SwiftUI views right away
       uninstall   Removes instrumentation for a target or full clean up
       check       Verifies all setup steps with ✓ / ✗ status
 

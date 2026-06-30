@@ -16,7 +16,7 @@ struct ReturnStatementView: View {
          return NavigationStack {
              Text("Nav")
          }
-         .bttTrackScreen("\(Self.self)")
+         .bttTrack("\(Self.self)")
      }
  }
  */

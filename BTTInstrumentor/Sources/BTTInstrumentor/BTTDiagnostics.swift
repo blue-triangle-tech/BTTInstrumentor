@@ -61,10 +61,7 @@ final class BTTDiagnostics {
         }
 
         let checker = BTTVersionChecker(xcodeprojPath: xcodeprojPath)
-        if BTTConstants.isForkedVersion {
-            BTTLog.checklist("\(next()). ⚠ BlueTriangle: isForkedVersion = true — version check skipped.", ok: false)
-            BTTLog.checklist("    ↳ set BTTConstants.isForkedVersion = false before release to enable this check", ok: false)
-        } else if let version = checker.resolvedVersion() {
+        if let version = checker.resolvedVersion() {
             check(next(),
                 exists: BTTVersionChecker.isVersion(version, atLeast: BTTConstants.minBTTVersion),
                 pass: "BlueTriangle version: \(version) (>= \(BTTConstants.minBTTVersion))",

@@ -408,7 +408,7 @@ final class BTTCommand {
         let frameworksLinked = frameworkFiles.compactMap { $0.product?.productName ?? $0.file?.name ?? $0.file?.path }
         if frameworksLinked.contains(BTTConstants.bttProductName) { return }
 
-        BTTLog.warn("\(BTTConstants.bttProductName) could not be detected in '\(target)' — make sure BlueTriangle SDK is linked before building.")
+        BTTLog.warn("\(BTTConstants.bttProductName) not found in '\(target)' — make sure BlueTriangle SDK is linked before building.")
     }
 
     private func requireXcodeproj() -> String {

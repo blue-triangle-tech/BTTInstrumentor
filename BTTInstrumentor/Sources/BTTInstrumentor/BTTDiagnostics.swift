@@ -128,10 +128,10 @@ final class BTTDiagnostics {
                     let allLinked = linkedProducts + frameworkProducts
                     let hasBTT = allLinked.contains(BTTConstants.bttProductName)
                     check(next(),
-                        exists: hasBTT,
-                        pass: "\(BTTConstants.bttProductName) linked: \(target)",
-                        fail: "\(BTTConstants.bttProductName) not linked in '\(target)' — add BlueTriangle SDK to this target",
-                        diagnose: "current dependencies: \(allLinked.isEmpty ? "(none)" : allLinked.joined(separator: ", "))"
+                          exists: hasBTT,
+                          pass: "\(BTTConstants.bttProductName) linked: \(target)",
+                          fail: "\(BTTConstants.bttProductName) not linked in '\(target)' — add BlueTriangle SDK to this target",
+                          diagnose: "current dependencies: \(allLinked.isEmpty ? "(none)" : allLinked.joined(separator: ", "))"
                     )
                 }
             }

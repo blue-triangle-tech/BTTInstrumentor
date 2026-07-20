@@ -1,7 +1,7 @@
 # BTTInstrumentor
 A command-line tool to be used with [btt-swift-sdk](https://github.com/blue-triangle-tech/btt-swift-sdk) for instrumenting SwiftUI views.  
 
-BTTInstrumenter is a companion command-line tool that automatically instruments SwiftUI views in your iOS app. Once integrated into your Xcode project, BTTInstrumenter runs on every build — eliminating the need to manually add instrumentation code to each view.
+BTTInstrumentor is a companion command-line tool that automatically instruments SwiftUI views in your iOS app. Once integrated into your Xcode project, BTTInstrumentor runs on every build — eliminating the need to manually add instrumentation code to each view.
 
 ## Setup
 

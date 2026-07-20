@@ -42,7 +42,7 @@ final class BTTVersionChecker {
         }
 
         guard !Self.isVersion(version, atLeast: BTTConstants.minBTTVersion) else {
-            BTTLog.info("\(BTTConstants.bttProductName) \(version) ✓")
+            BTTLog.verbose("\(BTTConstants.bttProductName) \(version)")
             return true
         }
 

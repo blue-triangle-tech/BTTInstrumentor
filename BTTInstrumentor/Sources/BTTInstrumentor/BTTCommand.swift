@@ -395,11 +395,20 @@ final class BTTCommand {
         guard let xcodeproj = try? XcodeProj(path: Path(xcodeprojPath)),
               let native = xcodeproj.pbxproj.nativeTargets.first(where: { $0.name == target })
         else { return }
-        let linked = (native.packageProductDependencies ?? []).map { $0.productName }
-        guard !linked.contains(BTTConstants.bttProductName) else { return }
-        BTTLog.error("\(BTTConstants.bttProductName) is not linked to '\(target)'.")
-        BTTLog.error("  ↳ Add BlueTriangle SDK to your target in Xcode before running BTTInstrumentor.")
-        exit(1)
+
+        // Check packageProductDependencies (modern Xcode format)
+        let packageLinked = (native.packageProductDependencies ?? []).map { $0.productName }
+        if packageLinked.contains(BTTConstants.bttProductName) { return }
+
+        // Fallback: check frameworks build phase via productRef (older projects where
+        // Xcode stores SPM products only as productRef on PBXBuildFile)
+        let frameworkFiles = native.buildPhases
+            .compactMap { $0 as? PBXFrameworksBuildPhase }
+            .flatMap { $0.files ?? [] }
+        let frameworksLinked = frameworkFiles.compactMap { $0.product?.productName ?? $0.file?.name ?? $0.file?.path }
+        if frameworksLinked.contains(BTTConstants.bttProductName) { return }
+
+        BTTLog.warn("\(BTTConstants.bttProductName) not found in '\(target)' — make sure BlueTriangle SDK is linked before building.")
     }
 
     private func requireXcodeproj() -> String {

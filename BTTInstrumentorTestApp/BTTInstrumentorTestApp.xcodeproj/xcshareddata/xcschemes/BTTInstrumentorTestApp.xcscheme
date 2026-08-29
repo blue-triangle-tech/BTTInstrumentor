@@ -5,6 +5,24 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "BTTInstrumentation"
+               scriptText = "bash &quot;$SRCROOT/.btt/btt_instrument.sh&quot; || true&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "AABB000500000001"
+                     BuildableName = "BTTInstrumentorTestApp.app"
+                     BlueprintName = "BTTInstrumentorTestApp"
+                     ReferencedContainer = "container:BTTInstrumentorTestApp.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"

@@ -48,9 +48,7 @@ final class BTTVersionChecker {
         return .notFound
     }
 
-    /// Always returns true (never blocks the caller) — surfaces problems as warnings only.
-    @discardableResult
-    func checkAndProceed() -> Bool {
+    func checkAndProceed() {
         switch resolvedPin() {
         case .notFound:
             BTTLog.warn("BTTInstrumentor is not able to detect the \(BTTConstants.bttProductName) SDK. Instrumentation will proceed assuming the \(BTTConstants.bttProductName) SDK will be importable in each SwiftUI file in this target.")
@@ -69,7 +67,6 @@ final class BTTVersionChecker {
                 )
             }
         }
-        return true
     }
 
     // MARK: - Version comparison

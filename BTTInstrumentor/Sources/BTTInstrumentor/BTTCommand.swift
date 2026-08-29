@@ -58,8 +58,10 @@ final class BTTCommand {
         let selected = promptTargetSelection(store: store, allTargets: allTargets)
 
         if !store.isInstrumented(selected) {
-            requireBTTVersion(xcodeprojPath: xcodeprojPath)
-            requireBlueTriangle(xcodeprojPath: xcodeprojPath, target: selected)
+            let sdkFound = requireBTTVersion(xcodeprojPath: xcodeprojPath)
+            if sdkFound {
+                requireBlueTriangle(xcodeprojPath: xcodeprojPath, target: selected)
+            }
         }
 
         BTTLog.startSpinner("Setting up BTTInstrumentor for '\(selected)'...")
@@ -247,6 +249,7 @@ final class BTTCommand {
                 let (f, v) = revertSwiftFiles(for: target, in: xcodeprojPath, resolver: resolver, injector: injector)
                 totalFiles += f
                 totalViews += v
+                store.remove(target)
             }
 
             let preActionsRemoved = buildPhase.removePreActions(store: store)
@@ -400,8 +403,12 @@ final class BTTCommand {
     }
 
     // MARK: - Private helpers
-    private func requireBTTVersion(xcodeprojPath: String) {
-        BTTVersionChecker(xcodeprojPath: xcodeprojPath).checkAndProceed()
+    @discardableResult
+    private func requireBTTVersion(xcodeprojPath: String) -> Bool {
+        let checker = BTTVersionChecker(xcodeprojPath: xcodeprojPath)
+        checker.checkAndProceed()
+        if case .notFound = checker.resolvedPin() { return false }
+        return true
     }
 
     private func requireBlueTriangle(xcodeprojPath: String, target: String) {
@@ -421,7 +428,7 @@ final class BTTCommand {
         let frameworksLinked = frameworkFiles.compactMap { $0.product?.productName ?? $0.file?.name ?? $0.file?.path }
         if frameworksLinked.contains(BTTConstants.bttProductName) { return }
 
-        BTTLog.warn("\(BTTConstants.bttProductName) not found in '\(target)' — make sure BlueTriangle SDK is linked before building.")
+        BTTLog.warn("\(BTTConstants.bttProductName) not found in target '\(target)' — make sure BlueTriangle SDK is linked before building.")
     }
 
     private func requireXcodeproj() -> String {

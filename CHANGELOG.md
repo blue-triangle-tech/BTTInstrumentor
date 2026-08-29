@@ -1,7 +1,7 @@
 # BTTInstrumentor 1.0.2, Latest
 
 ### Bug Fixes
-- Fixed BTTInstrumentor blocking installation when the BlueTriangle SDK can't be resolved in the project — it now shows a warning (BTTInstrumentor is not able to detect the BlueTriangle SDK. Instrumentation will proceed assuming the BlueTriangle SDK will be importable in each SwiftUI file in this target) and continues.
+- Fixed BTTInstrumentor blocking installation when it is unable to resolve the SDK in the project — it now shows a warning and continues.
 
 # BTTInstrumentor 1.0.1, JUL 20 2026
 ### Improvements

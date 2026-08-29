@@ -86,7 +86,7 @@ final class BTTProjectResolver {
         var seen      = Set<String>()
         var inSection = false
 
-        BTTLog.startSpinner("Resolving targets (running xcodebuild -list)...")
+        BTTLog.startSpinner("Resolving targets (may need to build first)...")
         let output = runXcodebuildList(for: xcodeprojPath)
         BTTLog.stopSpinner()
 

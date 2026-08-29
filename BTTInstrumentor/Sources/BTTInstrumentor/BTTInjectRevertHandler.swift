@@ -30,7 +30,7 @@ final class BTTInjectRevertHandler {
         let inputDiags = ParseDiagnosticsGenerator.diagnostics(for: tree)
         if !inputDiags.isEmpty {
             BTTLog.error("  ✗ Skipping — \(inputDiags.count) parse error(s) in source:")
-            inputDiags.forEach { BTTLog.error("    \($0.message)") }
+            inputDiags.forEach { BTTLog.detail("    \($0.message)") }
             return 0
         }
 
@@ -49,7 +49,7 @@ final class BTTInjectRevertHandler {
         let hasTrackImport   = result.contains("import \(BTTConstants.importModule)")
         if hasTrackModifier && !hasTrackImport {
             BTTLog.error("  ✗ \(fileName) Injection skipped — .\(BTTConstants.trackModifier)() was added but import \(BTTConstants.importModule) is missing.")
-            BTTLog.error("    This indicates an unexpected file layout. Please report this file to BlueTriangle SDK team.")
+            BTTLog.detail("    This indicates an unexpected file layout. Please report this file to BlueTriangle SDK team.")
             return 0
         }
 

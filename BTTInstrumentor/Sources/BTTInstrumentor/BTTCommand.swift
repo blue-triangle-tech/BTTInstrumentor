@@ -25,8 +25,6 @@ final class BTTCommand {
         let projName      = ((xcodeprojPath as NSString).lastPathComponent as NSString).deletingPathExtension
         BTTLog.verbose("Found \(projName).xcodeproj")
 
-        requireBTTVersion(xcodeprojPath: xcodeprojPath)
-
         // ── Resolve targets ───────────────────────────────────────────────────
         let projectDir = (xcodeprojPath as NSString).deletingLastPathComponent
         let store      = BTTTargetStore(projectDir: projectDir)
@@ -60,9 +58,11 @@ final class BTTCommand {
         let selected = promptTargetSelection(store: store, allTargets: allTargets)
 
         if !store.isInstrumented(selected) {
+            requireBTTVersion(xcodeprojPath: xcodeprojPath)
             requireBlueTriangle(xcodeprojPath: xcodeprojPath, target: selected)
         }
 
+        BTTLog.startSpinner("Setting up BTTInstrumentor for '\(selected)'...")
         let binaryResult = writer.copyBinary()
         switch binaryResult {
         case .written:
@@ -70,8 +70,9 @@ final class BTTCommand {
         case .unchanged:
             break
         case .failed(let reason):
+            BTTLog.stopSpinner()
             BTTLog.error("Install failed — could not install BTTInstrumentor binary.")
-            BTTLog.error("  ↳ \(reason)")
+            BTTLog.detail("  ↳ \(reason)")
             exit(1)
         }
 
@@ -81,6 +82,7 @@ final class BTTCommand {
         BTTLog.verbose("Created \(BTTConstants.configFileName)")
 
         let scriptResult = writer.writeInstrumentScript()
+        BTTLog.stopSpinner()
         switch scriptResult {
         case .written:
             BTTLog.verbose("Created \(BTTConstants.scriptFileName)")
@@ -88,7 +90,7 @@ final class BTTCommand {
             BTTLog.verbose("\(BTTConstants.scriptFileName) already up to date")
         case .failed(let reason):
             BTTLog.error("Install failed — could not write \(BTTConstants.scriptFileName).")
-            BTTLog.error("  ↳ \(reason)")
+            BTTLog.detail("  ↳ \(reason)")
             exit(1)
         }
 
@@ -99,16 +101,16 @@ final class BTTCommand {
 
         if schemeResult.matchedSchemes.isEmpty {
             BTTLog.warn("No scheme found for target '\(selected)' — pre-action was not injected.")
-            BTTLog.warn("  ↳ Auto-instrumentation on every build won't work until you:")
-            BTTLog.warn("     1. Create a scheme for '\(selected)' in Xcode (Product → Scheme → New Scheme)")
-            BTTLog.warn("     2. Quit Xcode and re-run 'BTTInstrumentor install'")
+            BTTLog.detail("  ↳ Auto-instrumentation on every build won't work until you:")
+            BTTLog.detail("     1. Create a scheme for '\(selected)' in Xcode (Product → Scheme → New Scheme)")
+            BTTLog.detail("     2. Quit Xcode and re-run 'BTTInstrumentor install'")
             BTTLog.success("BTTInstrumentor \(BTTConstants.version) installed for target '\(selected)' (scheme pending)")
         } else {
             BTTLog.verbose("Pre-action present for target \(selected) in scheme(s) \(schemeResult.matchedSchemes.joined(separator: ", "))")
             if !schemeResult.hasSharedScheme {
                 BTTLog.warn("Pre-action was injected into a user-local scheme only (\(schemeResult.userOnlySchemes.joined(separator: ", "))).")
-                BTTLog.warn("  ↳ User schemes are not shared with the team (typically gitignored).")
-                BTTLog.warn("  ↳ To apply to all team members: in Xcode, mark the scheme as Shared (Manage Schemes → tick Shared), then re-run 'BTTInstrumentor install'.")
+                BTTLog.detail("  ↳ User schemes are not shared with the team (typically gitignored).")
+                BTTLog.detail("  ↳ To apply to all team members: in Xcode, mark the scheme as Shared (Manage Schemes → tick Shared), then re-run 'BTTInstrumentor install'.")
             }
             BTTLog.success("Successfully installed BTTInstrumentor \(BTTConstants.version) to project \(projName).xcodeproj target \(selected)")
         }
@@ -210,17 +212,24 @@ final class BTTCommand {
 
         BTTLog.verbose("Instrumented targets: \(instrumented.joined(separator: ", "))")
 
-        BTTLog.prompt("\nWhich target do you want to remove?\n\n")
-        instrumented.enumerated().forEach { i, t in BTTLog.prompt("  \(i + 1). \(t)\n") }
-        BTTLog.prompt("  \(instrumented.count + 1). Remove all (full clean up)\n")
-        BTTLog.prompt("\nEnter the number: ")
+        let idx: Int
+        if instrumented.count == 1 {
+            BTTLog.info("Only one instrumented target found: '\(instrumented[0])' — using it automatically.")
+            idx = 1
+        } else {
+            BTTLog.prompt("\nWhich target do you want to remove?\n\n")
+            instrumented.enumerated().forEach { i, t in BTTLog.prompt("  \(i + 1). \(t) (already instrumented)\n") }
+            BTTLog.prompt("  \(instrumented.count + 1). Remove all (full clean up)\n")
+            BTTLog.prompt("\nEnter the number: ")
 
-        guard let input = readLine()?.trimmingCharacters(in: .whitespaces),
-              let idx   = Int(input),
-              (1...instrumented.count + 1).contains(idx)
-        else {
-            BTTLog.warn("Invalid selection.")
-            return
+            guard let input = readLine()?.trimmingCharacters(in: .whitespaces),
+                  let parsed = Int(input),
+                  (1...instrumented.count + 1).contains(parsed)
+            else {
+                BTTLog.warn("Invalid selection.")
+                return
+            }
+            idx = parsed
         }
 
         let buildPhase = BTTBuildPhase(xcodeprojPath: xcodeprojPath)
@@ -253,7 +262,7 @@ final class BTTCommand {
             let bttDirStillExists = FileManager.default.fileExists(atPath: bttDirPath)
             if bttDirStillExists {
                 BTTLog.error("Failed to remove .btt folder at \(bttDirPath).")
-                BTTLog.error("  ↳ check folder permissions and remove it manually if needed.")
+                BTTLog.detail("  ↳ check folder permissions and remove it manually if needed.")
             } else if bttDirExistedBeforeRemoval {
                 BTTLog.verbose("Removed .btt folder")
             }
@@ -299,7 +308,7 @@ final class BTTCommand {
                 bttDirStillExists = FileManager.default.fileExists(atPath: bttDirPath)
                 if bttDirStillExists {
                     BTTLog.error("Failed to remove .btt folder at \(bttDirPath).")
-                    BTTLog.error("  ↳ check folder permissions and remove it manually if needed.")
+                    BTTLog.detail("  ↳ check folder permissions and remove it manually if needed.")
                 } else {
                     BTTLog.verbose("Removed .btt folder")
                     bttFolderRemoved = true
@@ -326,10 +335,11 @@ final class BTTCommand {
 
     // MARK: - Post-install scan + prompt
     private func promptImmediateInstrumentation(for target: String, in xcodeprojPath: String, resolver: BTTProjectResolver, hasScheme: Bool) {
-        BTTLog.info("Scanning project...")
+        BTTLog.startSpinner("Scanning project...")
 
         let files = resolver.getSwiftFiles(for: target, in: xcodeprojPath)
         guard !files.isEmpty else {
+            BTTLog.stopSpinner()
             BTTLog.warn("No Swift files found for '\(target)'.")
             printNextBuildMessage(hasScheme: hasScheme)
             return
@@ -343,6 +353,7 @@ final class BTTCommand {
             let count = counter.countInjectableViews(file: file)
             if count > 0 { swiftUIViews += count; swiftUIFiles += 1 }
         }
+        BTTLog.stopSpinner()
 
         BTTLog.info("Found \(swiftUIFiles) SwiftUI file(s) and \(swiftUIViews) view(s)\n")
 
@@ -352,6 +363,7 @@ final class BTTCommand {
             BTTLog.prompt("Instrument all? (y/n): ")
             let answer = readLine()?.trimmingCharacters(in: .whitespaces).lowercased()
             if answer == "y" || answer == "yes" {
+                BTTLog.startSpinner("Instrumenting SwiftUI views...")
                 let injector  = BTTInjectRevertHandler()
                 var injFiles  = 0
                 var injViews  = 0
@@ -361,13 +373,14 @@ final class BTTCommand {
                     let count = injector.inject(file: file)
                     if count > 0 { injViews += count; injFiles += 1 }
                 }
+                BTTLog.stopSpinner()
 
                 let ms = Int(Date().timeIntervalSince(start) * 1000)
                 BTTLog.success("Instrumentation completed — SwiftUI files \(injFiles), SwiftUI views \(injViews), time taken \(ms) ms")
 
                 if !hasScheme {
                     BTTLog.warn("This is a one-time injection — new or modified views won't be re-instrumented automatically.")
-                    BTTLog.warn("  ↳ Create a scheme for '\(target)' in Xcode and re-run 'BTTInstrumentor install' to enable auto-instrumentation on every build.")
+                    BTTLog.detail("  ↳ Create a scheme for '\(target)' in Xcode and re-run 'BTTInstrumentor install' to enable auto-instrumentation on every build.")
                 }
             } else {
                 printNextBuildMessage(hasScheme: hasScheme)
@@ -382,13 +395,13 @@ final class BTTCommand {
             BTTLog.info("On next build all SwiftUI views will be instrumented automatically. For more info see \(BTTConstants.docsURL)\n")
         } else {
             BTTLog.warn("Auto-instrumentation on build is not active — no scheme is set up.")
-            BTTLog.warn("  ↳ Create a scheme for your target in Xcode and re-run 'BTTInstrumentor install'.")
+            BTTLog.detail("  ↳ Create a scheme for your target in Xcode and re-run 'BTTInstrumentor install'.")
         }
     }
 
     // MARK: - Private helpers
     private func requireBTTVersion(xcodeprojPath: String) {
-        guard BTTVersionChecker(xcodeprojPath: xcodeprojPath).checkAndProceed() else { exit(0) }
+        BTTVersionChecker(xcodeprojPath: xcodeprojPath).checkAndProceed()
     }
 
     private func requireBlueTriangle(xcodeprojPath: String, target: String) {
@@ -427,6 +440,13 @@ final class BTTCommand {
 
         guard !args.nonInteractive else { return allTargets[0] }
 
+        guard allTargets.count > 1 else {
+            let only = allTargets[0]
+            let tag  = store.isInstrumented(only) ? " (already instrumented)" : ""
+            BTTLog.info("Only one target found: '\(only)'\(tag) — using it automatically.")
+            return only
+        }
+
         BTTLog.prompt("\nWhich target do you want to instrument?\n\n")
         allTargets.enumerated().forEach { i, t in
             let tag = store.isInstrumented(t) ? " (already instrumented)" : ""
@@ -451,13 +471,14 @@ final class BTTCommand {
         injector: BTTInjectRevertHandler
     ) -> (files: Int, views: Int) {
         let files = resolver.getSwiftFiles(for: target, in: xcodeprojPath)
-        BTTLog.verbose("Scanning \(files.count) Swift file(s) for target \(target)")
+        BTTLog.startSpinner("Scanning \(files.count) Swift file(s) for target \(target)...")
         var removedFiles = 0
         var removedViews = 0
         for file in files {
             let count = injector.revert(file: file)
             if count > 0 { removedFiles += 1; removedViews += count }
         }
+        BTTLog.stopSpinner()
         return (removedFiles, removedViews)
     }
 

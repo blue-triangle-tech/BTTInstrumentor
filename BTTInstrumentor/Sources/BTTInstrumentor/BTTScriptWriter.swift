@@ -83,8 +83,8 @@ final class BTTScriptWriter {
         let dv = destVersion ?? "unknown"
         let pv = pathVersion ?? "unknown"
 
-        BTTLog.prompt("\nNew version \(pv) is available (you are on \(dv)).\n")
-        BTTLog.prompt("Do you want to update \(pv)? (y/n): ")
+        BTTLog.prompt("\nYour project is instrumented with an older version (\(dv)). New version \(pv) is available.\n")
+        BTTLog.prompt("Do you want to update your project's instrumentation? (y/n): ")
 
         let answer = readLine()?.trimmingCharacters(in: .whitespaces).lowercased()
         guard answer == "y" || answer == "yes" else {

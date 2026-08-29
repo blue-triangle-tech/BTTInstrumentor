@@ -61,14 +61,22 @@ final class BTTDiagnostics {
         }
 
         let checker = BTTVersionChecker(xcodeprojPath: xcodeprojPath)
-        if let version = checker.resolvedVersion() {
+        switch checker.resolvedPin() {
+        case .versioned(let version):
             check(next(),
                 exists: BTTVersionChecker.isVersion(version, atLeast: BTTConstants.minBTTVersion),
                 pass: "BlueTriangle version: \(version) (>= \(BTTConstants.minBTTVersion))",
                 fail: "BlueTriangle version: \(version) (requires >= \(BTTConstants.minBTTVersion))",
                 diagnose: "Package.resolved pins BlueTriangle \(version); open Xcode → File → Packages → Update to Latest Package Versions"
             )
-        } else {
+        case .unversioned(let ref):
+            check(next(),
+                exists: true,
+                pass: "BlueTriangle pinned to \(ref) (no semantic version to check)",
+                fail: "",
+                diagnose: "Package.resolved pins BlueTriangle to branch/revision \(ref) rather than a version tag"
+            )
+        case .notFound:
             check(next(),
                 exists: false,
                 pass: "",

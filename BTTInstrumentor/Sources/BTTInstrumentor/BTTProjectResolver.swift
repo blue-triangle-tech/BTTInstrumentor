@@ -23,11 +23,12 @@ final class BTTProjectResolver {
     func resolveXcodeproj() -> String? {
         if let p = args.projectPath, fm.fileExists(atPath: p) { return p }
 
+        BTTLog.startSpinner("Searching for .xcodeproj...")
         guard let enumerator = fm.enumerator(
             at: URL(fileURLWithPath: args.rootPath),
             includingPropertiesForKeys: [.isDirectoryKey],
             options: [.skipsHiddenFiles]
-        ) else { return nil }
+        ) else { BTTLog.stopSpinner(); return nil }
 
         var found: [String] = []
         let rootDepth = URL(fileURLWithPath: args.rootPath).pathComponents.count
@@ -37,11 +38,15 @@ final class BTTProjectResolver {
             if depth > BTTConstants.xcodeprojSearchDepth { enumerator.skipDescendants(); continue }
             if url.pathExtension == "xcodeproj" { found.append(url.path) }
         }
+        BTTLog.stopSpinner()
 
         BTTLog.verbose("Found \(found.count) .xcodeproj file(s) in \(args.rootPath)")
         switch found.count {
         case 0: return nil
-        case 1: BTTLog.verbose("Using: \(found[0])"); return found[0]
+        case 1:
+            let name = URL(fileURLWithPath: found[0]).lastPathComponent
+            BTTLog.info("Only one .xcodeproj found: '\(name)' — using it automatically.")
+            return found[0]
         default:
             guard !args.nonInteractive else {
                 let rootStore = BTTTargetStore(projectDir: args.rootPath)
@@ -81,7 +86,11 @@ final class BTTProjectResolver {
         var seen      = Set<String>()
         var inSection = false
 
-        for line in runXcodebuildList(for: xcodeprojPath).components(separatedBy: "\n") {
+        BTTLog.startSpinner("Resolving targets (may need to build first)...")
+        let output = runXcodebuildList(for: xcodeprojPath)
+        BTTLog.stopSpinner()
+
+        for line in output.components(separatedBy: "\n") {
             let trimmed = line.trimmingCharacters(in: .whitespaces)
             if trimmed == "Targets:"  { inSection = true; continue }
             guard inSection           else { continue }

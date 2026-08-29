@@ -43,6 +43,13 @@ enum BTTLog {
         else { print("\n\(red)\(prefix)error: \(msg)\(reset)") }
     }
 
+    /// A continuation/detail line for a preceding `warn`/`error` call — no repeated
+    /// "BTTInstrumentor: warning:"/"error:" prefix, just the indented text itself.
+    static func detail(_ msg: String) {
+        if isXcode { fputs("\(msg)\n", stderr) }
+        else { print("\(dim)\(msg)\(reset)") }
+    }
+
     /// Prints only when BTTLog.verboseEnabled is true.
     static func verbose(_ msg: String) {
         guard verboseEnabled else { return }
@@ -64,6 +71,58 @@ enum BTTLog {
         } else {
             let color = ok ? green : red
             print("\(color)\(msg)\(reset)")
+        }
+    }
+
+    private static let spinner = Spinner()
+    static func startSpinner(_ msg: String) {
+        guard isTTY, !isXcode, !verboseEnabled else { info(msg); return }
+        spinner.start("\(prefix)\(msg)")
+    }
+
+    static func stopSpinner() {
+        guard isTTY, !isXcode, !verboseEnabled else { return }
+        spinner.stop()
+    }
+
+    private final class Spinner {
+        private let frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        private let lock = NSLock()
+        private var frameIndex = 0
+        private var running = false
+        private var message = ""
+
+        /// A message this long (plus the "⠋ BTTInstrumentor: " frame prefix) risks
+        /// wrapping to a second terminal row, where `\r` + clear-line can't reach it.
+        private let maxMessageLength = 60
+
+        func start(_ msg: String) {
+            let capped = msg.count > maxMessageLength
+                ? String(msg.prefix(maxMessageLength - 1)) + "…"
+                : msg
+            lock.lock(); message = capped; running = true; lock.unlock()
+            print("\u{001B}[?25l", terminator: "") // hide cursor
+            Thread.detachNewThread { [self] in
+                while true {
+                    lock.lock()
+                    guard running else { lock.unlock(); break }
+                    let frame = frames[frameIndex % frames.count]
+                    frameIndex += 1
+                    let msg = message
+                    lock.unlock()
+                    print("\r\(cyan)\(frame)\(reset) \(msg)", terminator: "")
+                    fflush(stdout)
+                    Thread.sleep(forTimeInterval: 0.08)
+                }
+            }
+        }
+
+        func stop() {
+            lock.lock(); running = false; lock.unlock()
+            Thread.sleep(forTimeInterval: 0.12) // let the loop above observe `running = false`
+            print("\r\u{001B}[2K", terminator: "") // clear the line
+            print("\u{001B}[?25h", terminator: "") // show cursor
+            fflush(stdout)
         }
     }
 }

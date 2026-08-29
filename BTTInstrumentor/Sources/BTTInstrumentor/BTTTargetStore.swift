@@ -81,12 +81,9 @@ struct BTTTargetStore {
             try? FileManager.default.createDirectory(atPath: bttDir, withIntermediateDirectories: true)
         }
         do {
-            try? FileManager.default.setAttributes([.posixPermissions: 0o644], ofItemAtPath: configPath)
-            try raw.write(to: URL(fileURLWithPath: configPath))
-            try? FileManager.default.setAttributes([.posixPermissions: 0o444], ofItemAtPath: configPath)
+            try raw.write(to: URL(fileURLWithPath: configPath), options: .atomic)
         } catch {
-            try? raw.write(to: URL(fileURLWithPath: configPath))
-            try? FileManager.default.setAttributes([.posixPermissions: 0o444], ofItemAtPath: configPath)
+            BTTLog.warn("Failed to save \(BTTConstants.configFileName): \(error.localizedDescription)")
         }
     }
 }
